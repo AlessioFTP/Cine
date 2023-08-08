@@ -1,0 +1,61 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+struct datos{
+	
+	vector <string> usuario;
+	
+	vector <string> contra;
+	
+};
+
+void Importar(struct datos Cuentas); //Esta función es para importar todos los datos que se encuentran en los archivos al programa.
+
+int main(){
+	
+	struct datos Cuentas;
+	
+	Importar (Cuentas);
+	
+	return 0;
+}
+
+void Importar(struct datos Cuentas){
+
+	int i = 0;
+	
+	string U, C;
+	
+	ifstream Usuarios, Contras;
+	
+	Usuarios.open("Cuentas//Usuarios.txt", ios::in);
+	
+	Contras.open("Cuentas//Contraseñas.txt", ios::in);
+	
+	if (Usuarios.fail() && Contras.fail()){
+		
+		cout << "Paila";
+	}
+	else {
+	
+	while (!Usuarios.eof()){
+		
+		getline (Usuarios, U);
+		
+		getline (Contras, C);
+		
+		Cuentas[i].usuario = U;
+
+		Cuentas[i].contra = C;
+
+        i++
+		
+	}
+}
+	
+}
+
